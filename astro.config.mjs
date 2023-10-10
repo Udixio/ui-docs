@@ -1,7 +1,8 @@
-import { defineConfig } from 'astro/config';
+import {defineConfig} from 'astro/config';
 import starlight from '@astrojs/starlight';
-
 import react from "@astrojs/react";
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,5 +25,10 @@ export default defineConfig({
         directory: 'reference'
       }
     }]
-  }), react()]
+  }), react(), tailwind()],
+  vite: {
+    ssr: {
+      noExternal: ["@udixio/ui",]
+    }
+  }
 });
